@@ -8,19 +8,19 @@ export class SnackbarService {
   constructor(private snackBar: MatSnackBar) {}
 
   openSnackBar(message: string, action: string) {
-    if (action === 'error') {
+    if (action === 'Successfully registered') {
       this.snackBar.open(message, '', {
         horizontalPosition: 'center',
         verticalPosition: 'top',
         duration: 2000,
-        panelClass: ['black-snackbar'],
+        panelClass: ['green-snackbar'],
       });
     } else {
       this.snackBar.open(message, '', {
         horizontalPosition: 'center',
         verticalPosition: 'top',
         duration: 2000,
-        panelClass: ['green-snackbar'],
+        panelClass: ['black-snackbar'],
       });
     }
   }

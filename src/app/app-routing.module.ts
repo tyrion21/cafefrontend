@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { FullComponent } from './layouts/full/full.component';
+// import { RouteGuardService } from './services/route-guard.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,16 +17,23 @@ const routes: Routes = [
       },
       {
         path: '',
-        loadChildren:
-          () => import('./material-component/material.module').then(m => m.MaterialComponentsModule),
+        loadChildren: () =>
+          import('./material-component/material.module').then(
+            (m) => m.MaterialComponentsModule
+          ),
+        // canActivate: [RouteGuardService],
+        // data: { expectedRole: ['USER', 'ADMIN'] },
       },
       {
         path: 'dashboard',
-        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
-      }
-    ]
+        loadChildren: () =>
+          import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+        // canActivate: [RouteGuardService],
+        // data: { expectedRole: ['USER', 'ADMIN'] },
+      },
+    ],
   },
-  { path: '**', component: HomeComponent }
+  { path: '**', component: HomeComponent },
 ];
 
 @NgModule({
