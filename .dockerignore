@@ -1,17 +1,9 @@
 .git
 
-.editorconfig
+node_modules
 
-.gitignore
+dist
 
-/node_modules
+.vscode
 
-/e2e
-
-/docs
-
-/gitignore
-
-*.zip
-
-*.md
+.angular
